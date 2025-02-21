@@ -1,0 +1,231 @@
+proxy-groups:
+  - name: 地区选择
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - 最快节点
+      - 香港节点
+      - 台湾节点
+      - 狮城节点
+      - 日本节点
+      - 美国节点
+      - 韩国节点
+      - DIRECT
+
+  - name: 最快节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+    type: url-test
+    include-all: true
+    interval: 300
+    tolerance: 50
+    hidden: true
+
+  - name: 学术服务
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png
+    type: select
+    proxies:
+      - DIRECT
+      - 地区选择
+      - 美国节点
+      - 香港节点
+      - 台湾节点
+      - 狮城节点
+      - 日本节点
+      - 韩国节点
+  - name: 漏网之鱼
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
+    type: select
+    proxies:
+      - 地区选择
+      - DIRECT
+  - name: 香港节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    include-all: true
+    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
+    type: url-test
+    interval: 300
+    tolerance: 50
+    hidden: true
+  - name: 日本节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    include-all: true
+    filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
+    type: url-test
+    interval: 300
+    tolerance: 50
+    hidden: true
+  - name: 美国节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    include-all: true
+    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
+    type: url-test
+    interval: 300
+    tolerance: 50
+    hidden: true
+  - name: 台湾节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    include-all: true
+    filter: (?i)台|新北|彰化|TW|Taiwan
+    type: url-test
+    interval: 300
+    tolerance: 50
+    hidden: true
+  - name: 狮城节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    include-all: true
+    filter: (?i)新加坡|坡|狮城|SG|Singapore
+    type: url-test
+    interval: 300
+    tolerance: 50
+    hidden: true
+  - name: 韩国节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
+    include-all: true
+    filter: (?i)KR|Korea|KOR|首尔|韩|韓
+    type: url-test
+    interval: 300
+    tolerance: 50
+    hidden: true
+
+
+rule-providers:
+  Lan:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Lan/Lan.list
+    path: ./ruleset/Lan.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Advertising:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Advertising/Advertising.list
+    path: ./ruleset/Advertising.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Google:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Google/Google.list
+    path: ./ruleset/Google.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Bing:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Bing/Bing.list
+    path: ./ruleset/Bing.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  OneDrive:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/OneDrive/OneDrive.list
+    path: ./ruleset/OneDrive.list
+    behavior: classical
+    interval: 86400   
+    format: text
+    type: http
+  Microsoft:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Microsoft/Microsoft.list
+    path: ./ruleset/Microsoft.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Apple:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Apple/Apple.list
+    path: ./ruleset/Apple.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Telegram:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Telegram/Telegram.list
+    path: ./ruleset/Telegram.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  OpenAi:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/OpenAI/OpenAI.list
+    path: ./ruleset/OpenAi.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  YouTube:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/YouTube/YouTube.list
+    path: ./ruleset/YouTube.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ChinaMedia:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/ChinaMedia/ChinaMedia.list
+    path: ./ruleset/ChinaMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  GlobalMedia:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/GlobalMedia/GlobalMedia.list
+    path: ./ruleset/GlobalMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Global:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Global/Global.list
+    path: ./ruleset/Global.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ChinaDomain:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/ChinaDomain/ChinaDomain.list
+    path: ./ruleset/ChinaDomain.list
+    behavior: domain
+    interval: 86400
+    format: text
+    type: http
+  ChinaIPs:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/ChinaIPs/ChinaIPs.list
+    path: ./ruleset/ChinaIPs.list
+    behavior: ipcidr
+    interval: 86400
+    format: text
+    type: http
+  Download:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Download/Download.list
+    path: ./ruleset/Download.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Scholar:
+    url: https://mirror.ghproxy.com/https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Scholar/Scholar.list
+    path: ./ruleset/Scholar.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+
+rules:
+  - "RULE-SET,Lan,DIRECT"
+  - "RULE-SET,Advertising,REJECT"
+  - "RULE-SET,Google,地区选择"
+  - "RULE-SET,Bing,地区选择"
+  - "RULE-SET,OneDrive,地区选择"
+  - "RULE-SET,Microsoft,地区选择"
+  - "RULE-SET,Apple,DIRECT"
+  - "RULE-SET,Telegram,地区选择"
+  - "RULE-SET,OpenAi,地区选择"
+  - "RULE-SET,YouTube,地区选择"
+  - "RULE-SET,ChinaMedia,DIRECT"
+  - "RULE-SET,GlobalMedia,地区选择"
+  - "RULE-SET,Global,地区选择"
+  - "RULE-SET,ChinaDomain,DIRECT"
+  - "RULE-SET,ChinaIPs,DIRECT"
+  - "RULE-SET,Download,DIRECT"
+  - "RULE-SET,Scholar,学术服务" 
+  - "GEOIP,CN,DIRECT"
+  - "MATCH,漏网之鱼"
