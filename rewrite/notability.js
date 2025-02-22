@@ -8,7 +8,7 @@
 **************************************
 
 [rewrite_local]
-^https?:\/\/notability\.com\/(global|subscriptions) url script-response-body https://raw.githubusercontent.com/openviso/ClashVerge/refs/heads/main/notability.js
+^https?:\/\/notability\.com\/(global|subscriptions) url script-response-body https://raw.githubusercontent.com/openviso/Tool/master/rewrite/notability.js
 
 [mitm]
 hostname = notability.com
