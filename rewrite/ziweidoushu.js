@@ -6,16 +6,15 @@
 脚本作者：chxm1023
 电报频道：https://t.me/chxm1023
 使用声明：⚠️仅供参考，🈲转载与售卖！
-
-**************************************
+*************************************/
 
 [rewrite_local]
-^https?:\/\/zwpp\.wzbz123\.com\/api\/.+\/user\/getzwvipinfo url script-response-body https://raw.githubusercontent.com/chxm1023/Rewrite/main/jzzwds.js
+^https?:\/\/zwpp\.wzbz123\.com\/api\/.+\/user\/getzwvipinfo url script-response-body https://raw.githubusercontent.com/openviso/Tool/master/rewrite/ziweidoushu.js
 
 [mitm]
 hostname = zwpp.wzbz123.com
 
-*************************************/
+
 
 
 var chxm1023 = JSON.parse($response.body);
