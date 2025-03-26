@@ -1,6 +1,6 @@
 #!name=notability
 #!desc=解锁会员订阅
-#!icon=https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/notability.png
+#!icon=https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Notability.png
 [Script]
 http-response ^https?:\/\/notability\.com\/(global|subscriptions) script-path=https://raw.githubusercontent.com/openviso/Tool/master/rewrite/notability.js, requires-body=true, timeout=60, tag=notability
 
