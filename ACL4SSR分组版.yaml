@@ -22,18 +22,6 @@ proxy-groups:
     include-all: true
     interval: 300
     tolerance: 50
-  - name: OpenAi
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png
-    type: select
-    proxies:
-      - 自动选择
-      - 狮城节点
-      - 香港节点
-      - 台湾节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 手动切换
   - name: 微软服务
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Copilot.png
     type: select
@@ -216,6 +204,13 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  Gemini:
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Gemini.list
+    path: ./ruleset/Gemini.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
   Telegram:
     url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
     path: ./ruleset/Telegram.list
@@ -309,5 +304,6 @@ rules:
   - "RULE-SET,ChinaCompanyIp,DIRECT"
   - "RULE-SET,Download,DIRECT"
   - "RULE-SET,Scholar,学术服务" 
+  - "RULE-SET,Gemini,美国节点" 
   - "GEOIP,CN,DIRECT"
   - "MATCH,漏网之鱼"
