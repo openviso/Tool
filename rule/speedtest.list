@@ -1,0 +1,14 @@
+# ======= Speedtest 极简测速版 =======
+# 1. 核心调度与配置 (必须走代理，否则无法加载测速节点)
+HOST-SUFFIX,ookla.com,Speedtest
+HOST-SUFFIX,speedtest.net,Speedtest
+
+# 2. 测速节点通用匹配 (捕获全球数以万计的第三方测速服务器)
+HOST-KEYWORD,speedtest,Speedtest
+
+# 3. 核心 API 与 测速流量特征
+HOST-SUFFIX,speed.cloudflare.com,Speedtest
+HOST-SUFFIX,speed.measurementlab.net,Speedtest
+
+# 4. 移动端 App 识别
+USER-AGENT,SpeedTest*,Speedtest
