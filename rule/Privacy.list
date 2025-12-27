@@ -1,23 +1,37 @@
-# ======= 常用分析与监控屏蔽 (Privacy & Analytics) =======
-# 1. 核心分析平台 (DataDog & Statsig)
-HOST-SUFFIX,datadoghq.com,REJECT
-HOST-SUFFIX,datadoghq.eu,REJECT
+# ======= 深度隐私屏蔽 (整合版) =======
+
+# 1. 统计与特性管理 (Statsig / LaunchDarkly)
 HOST-SUFFIX,statsig.com,REJECT
 HOST-SUFFIX,statsigapi.net,REJECT
+HOST-SUFFIX,launchdarkly.com,REJECT
+HOST-SUFFIX,split.io,REJECT
 HOST-SUFFIX,featuregates.org,REJECT
 
-# 2. 开发者监控与报错 (Sentry & Segment)
+# 2. 性能监控与崩溃日志 (DataDog / Sentry / NewRelic)
+HOST-SUFFIX,datadoghq.com,REJECT
+HOST-SUFFIX,datadoghq.eu,REJECT
+HOST-SUFFIX,newrelic.com,REJECT
 HOST-SUFFIX,sentry.io,REJECT
+HOST-SUFFIX,bugsense.com,REJECT
+HOST-SUFFIX,crashlytics.com,REJECT
+
+# 3. 用户行为分析 (Segment / Amplitude / Mixpanel)
 HOST-SUFFIX,segment.io,REJECT
 HOST-SUFFIX,segment.com,REJECT
-
-# 3. 常见的通用移动端分析
 HOST-SUFFIX,amplitude.com,REJECT
 HOST-SUFFIX,mixpanel.com,REJECT
-HOST-SUFFIX,app-analytics-services.com,REJECT
-HOST-SUFFIX,adjust.com,REJECT
+HOST-SUFFIX,heap.io,REJECT
+HOST-SUFFIX,posthog.com,REJECT
 
-# 4. 关键字广泛拦截 (高效覆盖)
-HOST-KEYWORD,analytics,REJECT
-HOST-KEYWORD,telemetry,REJECT
-HOST-KEYWORD,log-upload,REJECT
+# 4. 移动广告追踪 (Adjust / AppsFlyer / Branch)
+HOST-SUFFIX,adjust.com,REJECT
+HOST-SUFFIX,appsflyer.com,REJECT
+HOST-SUFFIX,branch.io,REJECT
+HOST-SUFFIX,app-analytics-services.com,REJECT
+
+# 5. Google & Meta 追踪补丁 (仅拦截统计，不干扰登录)
+HOST-SUFFIX,google-analytics.com,REJECT
+HOST-SUFFIX,analytics.google.com,REJECT
+HOST,app-measurement.com,REJECT
+HOST,graph.facebook.com,REJECT
+HOST,analytics.facebook.com,REJECT
