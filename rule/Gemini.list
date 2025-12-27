@@ -1,11 +1,21 @@
-# === Google Gemini / MakerSuite ===
+# === Gemini 核心 ===
+HOST,gemini.google.com,Gemini
+HOST,generativelanguage.googleapis.com,Gemini
+HOST,proactivebackend-pa.googleapis.com,Gemini
+HOST,alkalimessaging-pa.googleapis.com,Gemini
+HOST,generativeai.google,Gemini
 
-host, ai.google.dev, Gemini
-host, makersuite.google.com, Gemini
-host, alkalimakersuite-pa.clients6.google.com, Gemini
-host, gemini.google.com, Gemini
-host, bard.google.com, Gemini
+# === 图片 / 多媒体 ===
+HOST-SUFFIX,googleusercontent.com,Gemini
 
-# 可选（研究 / 品牌）
-host-suffix, deepmind.com, Gemini
-host-suffix, deepmind.google, Gemini
+# === 登录 / 状态 ===
+HOST,iam.googleapis.com,Gemini
+HOST,myaccount.google.com,Gemini
+
+# === 开发者平台 ===
+HOST,ai.google.dev,Gemini
+HOST,makersuite.google.com,Gemini
+
+# === 可选：DeepMind ===
+HOST-SUFFIX,deepmind.com,Gemini
+HOST-SUFFIX,deepmind.google,Gemini
