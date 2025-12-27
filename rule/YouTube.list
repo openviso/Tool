@@ -1,8 +1,14 @@
-# YouTube 服务走地区选择策略
+# === YouTube（.com 体系 · 极简稳定版） ===
+
+host, music.youtube.com, 地区选择
+host, youtubei.googleapis.com, 地区选择
+
 host-suffix, youtube.com, 地区选择
-host-suffix, youtu.be, 地区选择
-host-suffix, youtube-nocookie.com, 地区选择
 host-suffix, googlevideo.com, 地区选择
+host-suffix, ggpht.com, 地区选择
 host-suffix, ytimg.com, 地区选择
-host-suffix, youtubei.googleapis.com, 地区选择
-host-suffix, youtube.googleapis.com, 地区选择
+host-suffix, youtu.be, 地区选择
+
+# 可选（如你用 Kids / 教育场景）
+host-suffix, youtubekids.com, 地区选择
+host-suffix, youtubeeducation.com, 地区选择
