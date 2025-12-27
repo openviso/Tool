@@ -1,0 +1,8 @@
+# GitHub → 地区选择
+host-suffix, github.com, 地区选择
+host-suffix, github.io, 地区选择
+host-suffix, githubusercontent.com, 地区选择
+host-suffix, githubassets.com, 地区选择
+host-suffix, raw.githubusercontent.com, 地区选择
+host-suffix, gist.githubusercontent.com, 地区选择
+host-suffix, api.github.com, 地区选择
