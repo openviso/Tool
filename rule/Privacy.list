@@ -1,81 +1,70 @@
-# ======= 深度隐私屏蔽 (整合版) =======
+# ======= 1. 国际巨头与广告联盟 (google/meta/amazon/twitter) =======
+host-suffix, doubleclick.net, reject
+host-suffix, googleadservices.com, reject
+host-suffix, googlesyndication.com, reject
+host-suffix, googletagmanager.com, reject
+host-suffix, google-analytics.com, reject
+host-suffix, app-measurement.com, reject
+host-suffix, facebook.net, reject
+host-keyword, analytics.google, reject
+host-keyword, analytics.facebook, reject
+host-keyword, graph.facebook, reject
+host-keyword, ads.amazon, reject
+host-suffix, ads-twitter.com, reject
+host-suffix, scorecardresearch.com, reject
 
-# 1. 统计与特性管理 (Statsig / LaunchDarkly)
-HOST-SUFFIX,statsig.com,REJECT
-HOST-SUFFIX,statsigapi.net,REJECT
-HOST-SUFFIX,launchdarkly.com,REJECT
-HOST-SUFFIX,split.io,REJECT
-HOST-SUFFIX,featuregates.org,REJECT
+# ======= 2. 国内大厂拦截 (字节/腾讯/阿里/百度/美团/快手) =======
+host-keyword, pangolin-sdk, reject
+host-keyword, zijieapi, reject
+host-suffix, pglstatp-toutiao.com, reject
+host-suffix, snssdk.com, reject
+host-suffix, gdt.qq.com, reject
+host-suffix, e.qq.com, reject
+host-keyword, trace.qq.com, reject
+host-keyword, wxsnsad, reject
+host-keyword, adash, reject
+host-suffix, pos.baidu.com, reject
+host-suffix, hm.baidu.com, reject
+host-keyword, meituan.net, reject
+host-suffix, video-dsp.pddpic.com, reject
+host-suffix, ads.adkwai.com, reject
 
-# 2. 性能监控与崩溃日志 (DataDog / Sentry / NewRelic)
-HOST-SUFFIX,datadoghq.com,REJECT
-HOST-SUFFIX,datadoghq.eu,REJECT
-HOST-SUFFIX,newrelic.com,REJECT
-HOST-SUFFIX,sentry.io,REJECT
-HOST-SUFFIX,bugsense.com,REJECT
-HOST-SUFFIX,crashlytics.com,REJECT
+# ======= 3. 专业分析与监控 (statsig/datadog/sentry/segment) =======
+host-suffix, statsig.com, reject
+host-suffix, statsigapi.net, reject
+host-suffix, launchdarkly.com, reject
+host-suffix, featuregates.org, reject
+host-suffix, split.io, reject
+host-suffix, datadoghq.com, reject
+host-suffix, datadoghq.eu, reject
+host-keyword, intake-datadoghq, reject
+host-suffix, sentry.io, reject
+host-suffix, newrelic.com, reject
+host-suffix, bugsnag.com, reject
+host-suffix, bugsense.com, reject
+host-suffix, segment.io, reject
+host-suffix, segment.com, reject
+host-suffix, amplitude.com, reject
+host-suffix, mixpanel.com, reject
+host-suffix, heap.io, reject
+host-suffix, posthog.com, reject
+host-suffix, hotjar.com, reject
 
-# 3. 用户行为分析 (Segment / Amplitude / Mixpanel)
-HOST-SUFFIX,segment.io,REJECT
-HOST-SUFFIX,segment.com,REJECT
-HOST-SUFFIX,amplitude.com,REJECT
-HOST-SUFFIX,mixpanel.com,REJECT
-HOST-SUFFIX,heap.io,REJECT
-HOST-SUFFIX,posthog.com,REJECT
+# ======= 4. app 追踪与第三方 sdk (adjust/appsflyer/inmobi) =======
+host-suffix, adjust.com, reject
+host-keyword, analytics.adjust, reject
+host-suffix, appsflyer.com, reject
+host-suffix, branch.io, reject
+host-suffix, crashlytics.com, reject
+host-suffix, umeng.com, reject
+host-suffix, inmobi.com, reject
+host-suffix, unityads.unity3d.com, reject
+host-suffix, sigmob.cn, reject
+host-suffix, hpplay.cn, reject
+host-suffix, app-analytics-services.com, reject
 
-# 4. 移动广告追踪 (Adjust / AppsFlyer / Branch)
-HOST-SUFFIX,adjust.com,REJECT
-HOST-SUFFIX,appsflyer.com,REJECT
-HOST-SUFFIX,branch.io,REJECT
-HOST-SUFFIX,app-analytics-services.com,REJECT
-
-# 5. Google & Meta 追踪补丁 (仅拦截统计，不干扰登录)
-HOST-SUFFIX,google-analytics.com,REJECT
-HOST-SUFFIX,analytics.google.com,REJECT
-HOST,app-measurement.com,REJECT
-HOST,graph.facebook.com,REJECT
-HOST,analytics.facebook.com,REJECT
-
-# ======= 1. 国际厂商 (Google / Meta / Amazon / Twitter) =======
-DOMAIN-SUFFIX,doubleclick.net,REJECT
-DOMAIN-SUFFIX,googleadservices.com,REJECT
-DOMAIN-SUFFIX,googlesyndication.com,REJECT
-DOMAIN-SUFFIX,facebook.net,REJECT
-DOMAIN-KEYWORD,analytics.facebook,REJECT
-DOMAIN-KEYWORD,ads.amazon,REJECT
-DOMAIN-SUFFIX,ads-twitter.com,REJECT
-
-# ======= 2. 国内主流大厂 (腾讯/阿里/字节/百度/美团/拼多多) =======
-DOMAIN-KEYWORD,pangolin-sdk,REJECT
-DOMAIN-KEYWORD,zijieapi,REJECT
-DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
-DOMAIN-SUFFIX,gdt.qq.com,REJECT
-DOMAIN-KEYWORD,trace.qq.com,REJECT
-DOMAIN-KEYWORD,wxsnsad,REJECT
-DOMAIN-KEYWORD,adash,REJECT
-DOMAIN-SUFFIX,pos.baidu.com,REJECT
-DOMAIN-KEYWORD,meituan.net,REJECT
-DOMAIN-SUFFIX,video-dsp.pddpic.com,REJECT
-
-# ======= 3. 中小型第三方广告/测速/SDK (友盟/Inmobi/Unity) =======
-DOMAIN-SUFFIX,umeng.com,REJECT
-DOMAIN-SUFFIX,adjust.com,REJECT
-DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,inmobi.com,REJECT
-DOMAIN-SUFFIX,unityads.unity3d.com,REJECT
-DOMAIN-SUFFIX,sigmob.cn,REJECT
-DOMAIN-SUFFIX,hpplay.cn,REJECT
-
-# ======= 4. 通用平台分析与监控 (Sentry / DataDog / Firebase) =======
-DOMAIN-SUFFIX,sentry.io,REJECT
-DOMAIN-SUFFIX,datadoghq.com,REJECT
-DOMAIN-SUFFIX,statsig.com,REJECT
-DOMAIN-SUFFIX,crashlytics.com,REJECT
-DOMAIN,app-measurement.com,REJECT
-
-# ======= 5. 极致关键字拦截 (捕获长尾广告) =======
-DOMAIN-KEYWORD,adserver,REJECT
-DOMAIN-KEYWORD,adclick,REJECT
-DOMAIN-KEYWORD,log-upload,REJECT
-DOMAIN-KEYWORD,telemetry,REJECT
-
+# ======= 5. 极致关键字拦截 (捕获所有未知的统计行为) =======
+host-keyword, adserver, reject
+host-keyword, adclick, reject
+host-keyword, log-upload, reject
+host-keyword, telemetry, reject
