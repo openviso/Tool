@@ -1,0 +1,9 @@
+# ======= Claude 核心精简规则集 =======
+# 1. 网页端入口 (涵盖对话界面、历史记录、静态资源)
+HOST-SUFFIX,claude.ai,Claude
+
+# 2. 核心 API 与 官网 (涵盖 API 调用、模型分发、公司官网)
+HOST-SUFFIX,anthropic.com,Claude
+
+# 3. 移动端 App 特征匹配 (确保 iOS/Android App 正常初始化)
+HOST-KEYWORD,anthropic,Claude
