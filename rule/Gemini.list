@@ -1,0 +1,11 @@
+# === Google Gemini / MakerSuite ===
+
+host, ai.google.dev, Gemini
+host, makersuite.google.com, Gemini
+host, alkalimakersuite-pa.clients6.google.com, Gemini
+host, gemini.google.com, Gemini
+host, bard.google.com, Gemini
+
+# 可选（研究 / 品牌）
+host-suffix, deepmind.com, Gemini
+host-suffix, deepmind.google, Gemini
