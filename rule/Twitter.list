@@ -1,0 +1,10 @@
+# === Twitter / X（精简稳定版） ===
+
+host-suffix, twitter.com, 地区选择
+host-suffix, twttr.com, 地区选择
+host-suffix, x.com, 地区选择
+host-suffix, t.co, 地区选择
+host-suffix, twimg.com, 地区选择
+
+# 可选（用 TweetDeck 再加）
+# host-suffix, tweetdeck.com, 地区选择
