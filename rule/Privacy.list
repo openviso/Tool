@@ -1,19 +1,20 @@
-# ======= 1. 国际巨头与广告联盟 (google/meta/amazon/twitter) =======
+# ======= 1. 国际巨头隐私与广告 (google/meta/amazon/apple) =======
 host-suffix, doubleclick.net, reject
+host-suffix, google-analytics.com, reject
 host-suffix, googleadservices.com, reject
 host-suffix, googlesyndication.com, reject
 host-suffix, googletagmanager.com, reject
-host-suffix, google-analytics.com, reject
 host-suffix, app-measurement.com, reject
+host-suffix, scorecardresearch.com, reject
 host-suffix, facebook.net, reject
-host-keyword, analytics.google, reject
 host-keyword, analytics.facebook, reject
 host-keyword, graph.facebook, reject
 host-keyword, ads.amazon, reject
 host-suffix, ads-twitter.com, reject
-host-suffix, scorecardresearch.com, reject
+host-suffix, iad.apple.com, reject
+host-suffix, securemetrics.apple.com, reject
 
-# ======= 2. 国内大厂拦截 (字节/腾讯/阿里/百度/美团/快手) =======
+# ======= 2. 国内大厂行为追踪 (字节/腾讯/阿里/百度/美团/快手) =======
 host-keyword, pangolin-sdk, reject
 host-keyword, zijieapi, reject
 host-suffix, pglstatp-toutiao.com, reject
@@ -25,37 +26,35 @@ host-keyword, wxsnsad, reject
 host-keyword, adash, reject
 host-suffix, pos.baidu.com, reject
 host-suffix, hm.baidu.com, reject
+host-suffix, bes-mtj.baidu.com, reject
 host-keyword, meituan.net, reject
 host-suffix, video-dsp.pddpic.com, reject
 host-suffix, ads.adkwai.com, reject
+host-suffix, log-sdk.gifshow.com, reject
 
-# ======= 3. 专业分析与监控 (statsig/datadog/sentry/segment) =======
+# ======= 3. 深度隐私与性能监控 (statsig/datadog/sentry/segment) =======
 host-suffix, statsig.com, reject
 host-suffix, statsigapi.net, reject
 host-suffix, launchdarkly.com, reject
-host-suffix, featuregates.org, reject
-host-suffix, split.io, reject
 host-suffix, datadoghq.com, reject
 host-suffix, datadoghq.eu, reject
 host-keyword, intake-datadoghq, reject
 host-suffix, sentry.io, reject
 host-suffix, newrelic.com, reject
 host-suffix, bugsnag.com, reject
-host-suffix, bugsense.com, reject
+host-suffix, mixpanel.com, reject
+host-suffix, amplitude.com, reject
 host-suffix, segment.io, reject
 host-suffix, segment.com, reject
-host-suffix, amplitude.com, reject
-host-suffix, mixpanel.com, reject
-host-suffix, heap.io, reject
 host-suffix, posthog.com, reject
 host-suffix, hotjar.com, reject
+host-suffix, crashlytics.com, reject
 
-# ======= 4. app 追踪与第三方 sdk (adjust/appsflyer/inmobi) =======
+# ======= 4. 全球归因与第三方 sdk (adjust/appsflyer/umeng/inmobi) =======
 host-suffix, adjust.com, reject
 host-keyword, analytics.adjust, reject
 host-suffix, appsflyer.com, reject
 host-suffix, branch.io, reject
-host-suffix, crashlytics.com, reject
 host-suffix, umeng.com, reject
 host-suffix, inmobi.com, reject
 host-suffix, unityads.unity3d.com, reject
@@ -63,8 +62,10 @@ host-suffix, sigmob.cn, reject
 host-suffix, hpplay.cn, reject
 host-suffix, app-analytics-services.com, reject
 
-# ======= 5. 极致关键字拦截 (捕获所有未知的统计行为) =======
+# ======= 5. 极致特征词屏蔽 (隐私补丁) =======
 host-keyword, adserver, reject
 host-keyword, adclick, reject
 host-keyword, log-upload, reject
 host-keyword, telemetry, reject
+host-keyword, analysis, reject
+host-keyword, tracking, reject
