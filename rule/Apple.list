@@ -1,26 +1,17 @@
-# CDN
-DOMAIN-KEYWORD,cdn,DIRECT
+# Apple 主域
+host-suffix, apple.com, DIRECT
+host-suffix, icloud.com, DIRECT
+host-suffix, itunes.apple.com, DIRECT
 
-# Apple
-DOMAIN-KEYWORD,aaplimg,DIRECT
-DOMAIN-KEYWORD,akadns,DIRECT
-DOMAIN-KEYWORD,apple,DIRECT
-DOMAIN-KEYWORD,crashlytics,DIRECT
-DOMAIN-KEYWORD,appstore,DIRECT
-DOMAIN-KEYWORD,icloud,DIRECT
-DOMAIN-KEYWORD,itunes,DIRECT
-DOMAIN-SUFFIX,me.com,DIRECT
-DOMAIN-KEYWORD,mzstatic,DIRECT
-DOMAIN-KEYWORD,smp-device,DIRECT
-DOMAIN-KEYWORD,testflight,DIRECT
+# Apple CDN（关键）
+host-suffix, akadns.net, DIRECT
+host-suffix, edgesuite.net, DIRECT
+host-suffix, akamaiedge.net, direct
+host-suffix, aaplimg.com, DIRECT
+host-suffix, mzstatic.com, DIRECT
+host-suffix, apple-dns.net, DIRECT
+host-suffix, apple-cloudkit.com, DIRECT
+host-suffix, icloud-content.com, DIRECT
 
-IP-CIDR,17.0.0.0/8,no-resolve
-IP-CIDR,63.92.224.0/19,no-resolve
-IP-CIDR,65.199.22.0/23,no-resolve
-IP-CIDR,139.178.128.0/18,no-resolve
-IP-CIDR,144.178.0.0/19,no-resolve
-IP-CIDR,144.178.36.0/22,no-resolve
-IP-CIDR,144.178.48.0/20,no-resolve
-IP-CIDR,192.35.50.0/24,no-resolve
-IP-CIDR,198.183.17.0/24,no-resolve
-IP-CIDR,205.180.175.0/24,no-resolve
+# 苹果下载服务器
+host,iosapps.itunes.apple.com,DIRECT
