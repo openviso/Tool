@@ -1,0 +1,19 @@
+# ======= OpenAI / ChatGPT 核心版 =======
+# 主站入口 (涵盖 chat.openai.com 和 chatgpt.com)
+HOST-SUFFIX,chatgpt.com,OpenAI
+HOST-SUFFIX,openai.com,OpenAI
+
+# 核心 API 与 模型分发
+HOST-SUFFIX,api.openai.com,OpenAI
+
+# 静态资源与多媒体 (必须保留，否则页面白屏/图片不显)
+HOST-SUFFIX,oaistatic.com,OpenAI
+HOST-SUFFIX,oaidsc.com,OpenAI
+
+# 移动端 App 专用 (解决 App 登录与初始化)
+HOST-SUFFIX,chatgpt.livekit.cloud,OpenAI
+HOST-KEYWORD,openai,OpenAI
+
+# ======= 屏蔽类 (可选，建议加入 Reject 组) =======
+# 剔除原列表中的统计域名，减少后台流量占用
+HOST,browser-intake-datadoghq.com,REJECT
