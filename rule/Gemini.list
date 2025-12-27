@@ -17,5 +17,5 @@ HOST,ai.google.dev,Gemini
 HOST,makersuite.google.com,Gemini
 
 # === 可选：DeepMind ===
-HOST-SUFFIX,deepmind.com,Gemini
-HOST-SUFFIX,deepmind.google,Gemini
+# HOST-SUFFIX,deepmind.com,Gemini
+# HOST-SUFFIX,deepmind.google,Gemini
