@@ -1,0 +1,23 @@
+# ======= 常用分析与监控屏蔽 (Privacy & Analytics) =======
+# 1. 核心分析平台 (DataDog & Statsig)
+HOST-SUFFIX,datadoghq.com,REJECT
+HOST-SUFFIX,datadoghq.eu,REJECT
+HOST-SUFFIX,statsig.com,REJECT
+HOST-SUFFIX,statsigapi.net,REJECT
+HOST-SUFFIX,featuregates.org,REJECT
+
+# 2. 开发者监控与报错 (Sentry & Segment)
+HOST-SUFFIX,sentry.io,REJECT
+HOST-SUFFIX,segment.io,REJECT
+HOST-SUFFIX,segment.com,REJECT
+
+# 3. 常见的通用移动端分析
+HOST-SUFFIX,amplitude.com,REJECT
+HOST-SUFFIX,mixpanel.com,REJECT
+HOST-SUFFIX,app-analytics-services.com,REJECT
+HOST-SUFFIX,adjust.com,REJECT
+
+# 4. 关键字广泛拦截 (高效覆盖)
+HOST-KEYWORD,analytics,REJECT
+HOST-KEYWORD,telemetry,REJECT
+HOST-KEYWORD,log-upload,REJECT
