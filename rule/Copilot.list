@@ -1,0 +1,20 @@
+# ======= Microsoft Copilot 核心精简版 =======
+# 1. 微软 AI 统一新域名 (2025 核心)
+HOST-SUFFIX,cloud.microsoft,Copilot
+HOST-SUFFIX,copilot.microsoft.com,Copilot
+
+# 2. Bing AI 核心组件 (Sydney 引擎)
+HOST,sydney.bing.com,Copilot
+HOST,www.bing.com,Copilot
+HOST-SUFFIX,edgeservices.bing.com,Copilot
+
+# 3. OpenAI 基础架构依赖 (Copilot 调用的底层模型)
+HOST-SUFFIX,chatgpt.com,Copilot
+HOST-SUFFIX,openai.com,Copilot
+HOST-SUFFIX,oaistatic.com,Copilot
+HOST-SUFFIX,oaiusercontent.com,Copilot
+
+# 4. 身份验证与网关 (必选，否则无法登录)
+HOST,login.microsoftonline.com,Copilot
+HOST-SUFFIX,challenges.cloudflare.com,Copilot
+HOST,openai-api.arkoselabs.com,Copilot
