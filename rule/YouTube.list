@@ -1,39 +1,8 @@
-# NAME: YouTube
-# AUTHOR: blackmatrix7
-# REPO: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list
-# UPDATED: 2024-07-03 16:14:51
-
-DOMAIN-SUFFIX,ggpht.cn
-DOMAIN-SUFFIX,ggpht.com
-DOMAIN-SUFFIX,googlevideo.com
-DOMAIN-SUFFIX,gvt1.com
-DOMAIN-SUFFIX,gvt2.com
-DOMAIN-SUFFIX,video.google.com
-DOMAIN-SUFFIX,wide-youtube.l.google.com
-DOMAIN-SUFFIX,withyoutube.com
-DOMAIN-SUFFIX,youtu.be
-DOMAIN-SUFFIX,youtube
-DOMAIN-SUFFIX,youtube-nocookie.com
-DOMAIN-SUFFIX,youtube-ui.l.google.com
-DOMAIN-SUFFIX,youtube.com
-DOMAIN-SUFFIX,youtubeeducation.com
-DOMAIN-SUFFIX,youtubeembeddedplayer.googleapis.com
-DOMAIN-SUFFIX,youtubefanfest.com
-DOMAIN-SUFFIX,youtubegaming.com
-DOMAIN-SUFFIX,youtubego.com
-DOMAIN-SUFFIX,youtubei.googleapis.com
-DOMAIN-SUFFIX,youtubekids.com
-DOMAIN-SUFFIX,youtubemobilesupport.com
-DOMAIN-SUFFIX,yt.be
-DOMAIN-SUFFIX,ytimg.com
-DOMAIN-KEYWORD,youtube
-USER-AGENT,*YouTubeMusic*
-USER-AGENT,*com.google.ios.youtubemusic*
-USER-AGENT,*youtube*
-USER-AGENT,YouTube*
-USER-AGENT,YouTubeMusic*
-USER-AGENT,com.google.ios.youtube*
-USER-AGENT,com.google.ios.youtubemusic*
-IP-CIDR,172.110.32.0/21,no-resolve
-IP-CIDR,216.73.80.0/20,no-resolve
-IP-CIDR6,2620:120:e000::/40,no-resolve
+# YouTube 服务走地区选择策略
+host-suffix, youtube.com, 地区选择
+host-suffix, youtu.be, 地区选择
+host-suffix, youtube-nocookie.com, 地区选择
+host-suffix, googlevideo.com, 地区选择
+host-suffix, ytimg.com, 地区选择
+host-suffix, youtubei.googleapis.com, 地区选择
+host-suffix, youtube.googleapis.com, 地区选择
