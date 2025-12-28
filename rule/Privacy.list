@@ -49,6 +49,8 @@ host-suffix, segment.com, reject
 host-suffix, posthog.com, reject
 host-suffix, hotjar.com, reject
 host-suffix, crashlytics.com, reject
+host, browser-intake-datadoghq.com, reject
+host-suffix, datadoghq.com, reject
 
 # ======= 4. 全球归因与第三方 sdk (adjust/appsflyer/umeng/inmobi) =======
 host-suffix, adjust.com, reject
