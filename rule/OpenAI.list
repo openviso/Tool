@@ -13,7 +13,3 @@ HOST-SUFFIX,oaidsc.com,OpenAI
 # 移动端 App 专用 (解决 App 登录与初始化)
 HOST-SUFFIX,chatgpt.livekit.cloud,OpenAI
 HOST-KEYWORD,openai,OpenAI
-
-# ======= 屏蔽类 (可选，建议加入 Reject 组) =======
-# 剔除原列表中的统计域名，减少后台流量占用
-HOST,browser-intake-datadoghq.com,REJECT
