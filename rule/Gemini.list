@@ -1,17 +1,17 @@
 # === gemini 核心 ===
-host,gemini.google.com,gemini
-host,generativelanguage.googleapis.com,gemini
-host,proactivebackend-pa.googleapis.com,gemini
-host,alkalimessaging-pa.googleapis.com,gemini
-host,generativeai.google,gemini
+host,gemini.google.com,Gemini
+host,generativelanguage.googleapis.com,Gemini
+host,proactivebackend-pa.googleapis.com,Gemini
+host,alkalimessaging-pa.googleapis.com,Gemini
+host,generativeai.google,Gemini
 
 # === 图片 / 多媒体 ===
-host-suffix,googleusercontent.com,gemini
+host-suffix,googleusercontent.com,Gemini
 
 # === 登录 / 状态 ===
-host,iam.googleapis.com,gemini
-host,myaccount.google.com,gemini
+host,iam.googleapis.com,Gemini
+host,myaccount.google.com,Gemini
 
 # === 开发者平台 ===
 host,ai.google.dev,gemini
-host,makersuite.google.com,gemini
+host,makersuite.google.com,Gemini
