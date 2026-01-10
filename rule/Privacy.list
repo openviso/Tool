@@ -21,13 +21,12 @@ host-suffix, pglstatp-toutiao.com, reject
 host-suffix, snssdk.com, reject
 host-suffix, gdt.qq.com, reject
 host-suffix, e.qq.com, reject
-host-keyword, trace.qq.com, reject
+host-suffix, trace.qq.com, reject
 host-keyword, wxsnsad, reject
 host-keyword, adash, reject
 host-suffix, pos.baidu.com, reject
 host-suffix, hm.baidu.com, reject
 host-suffix, bes-mtj.baidu.com, reject
-host-keyword, meituan.net, reject
 host-suffix, video-dsp.pddpic.com, reject
 host-suffix, ads.adkwai.com, reject
 host-suffix, log-sdk.gifshow.com, reject
