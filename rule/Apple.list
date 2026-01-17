@@ -1,17 +1,27 @@
-# Apple 主域
+# > AppleCN 深度精简版 (使用后缀匹配)
+
+# 1. 核心主域后缀 (已包含所有子域名如 gsa, setup, itunes 等)
 host-suffix, apple.com, direct
 host-suffix, icloud.com, direct
-host-suffix, itunes.apple.com, direct
+host-suffix, icloud.com.cn, direct
+host-suffix, apple-dns.cn, direct
+host-suffix, apple.com.cn, direct
 
-# Apple CDN（关键）
-host-suffix, akadns.net, direct
-host-suffix, edgesuite.net, direct
-host-suffix, akamaiedge.net, direct
+# 2. 核心资源与 CDN 后缀 (支持更新、下载与多媒体)
 host-suffix, aaplimg.com, direct
-host-suffix, mzstatic.com, direct
-host-suffix, apple-dns.net, direct
 host-suffix, apple-cloudkit.com, direct
+host-suffix, apple-dns.net, direct
+host-suffix, cdn-apple.com, direct
 host-suffix, icloud-content.com, direct
+host-suffix, itunes.com, direct
+host-suffix, mzstatic.com, direct
 
-# 苹果下载服务器
-host,iosapps.itunes.apple.com,DIRECT
+# 3. 租用 CDN 服务商后缀 (确保 Apple 边缘加速)
+host-suffix, akadns.net, direct
+host-suffix, akamaiedge.net, direct
+host-suffix, edgesuite.net, direct
+
+# 4. 必备系统服务
+host-suffix, me.com, direct
+host-suffix, push.apple.com, direct
+host-keyword, apple-pay, direct
