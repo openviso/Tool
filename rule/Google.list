@@ -1,11 +1,33 @@
-# Google 系列走【地区选择】自动策略组
-host-suffix, google.com, 地区选择
-host-suffix, googleapis.com, 地区选择
-host-suffix, gstatic.com, 地区选择
-host-suffix, googlevideo.com, 地区选择
-host-suffix, ggpht.com, 地区选择
-host-suffix, googleusercontent.com, 地区选择
-host-suffix, android.com, 地区选择
-host-suffix, doubleclick.net, 地区选择
-host-suffix, googlesyndication.com, 地区选择
+# --- google 规则集 ---
+
+# 域名后缀匹配
+host-suffix,google.com,地区选择
+host-suffix,googleapis.com,地区选择
+host-suffix,googleapis.cn,地区选择
+host-suffix,gstatic.com,地区选择
+host-suffix,gstatic.cn,地区选择
+host-suffix,googleusercontent.com,地区选择
+host-suffix,ggpht.com,地区选择
+host-suffix,android.com,地区选择
+host-suffix,g.co,地区选择
+host-suffix,goo.gl,地区选择
+host-suffix,c.gle,地区选择
+host-suffix,1e100.net,地区选择
+host-suffix,2mdn.net,地区选择
+host-suffix,gvt0.com,地区选择
+host-suffix,gvt1.com,地区选择
+host-suffix,gvt2.com,地区选择
+host-suffix,gvt3.com,地区选择
+host-suffix,doubleclick.net,地区选择
+host-suffix,googlesyndication.com,地区选择
+host-suffix,app-measurement.net,地区选择
+host-suffix,xn--ngstr-lra8j.com,地区选择
+
+# 域名关键词匹配
+host-keyword,google,地区选择
+host-keyword,gmail,地区选择
+
+# ip 地址段匹配
+ip-cidr,173.194.0.0/16,地区选择
+ip-cidr,74.125.0.0/16,地区选择
 
