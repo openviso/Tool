@@ -1,20 +1,24 @@
 domain_suffix_set:
-# Apple 官方服务及分发
-- DOMAIN-SUFFIX,apple.com
-- DOMAIN-SUFFIX,cdn-apple.com
-- DOMAIN-SUFFIX,icloud.com
-- DOMAIN-SUFFIX,icloud.com.cn
-- DOMAIN-SUFFIX,aaplimg.com
-- DOMAIN-SUFFIX,apple-cloudkit.com
-- DOMAIN-SUFFIX,apple-dns.net
-- DOMAIN-SUFFIX,icloud-content.com
-- DOMAIN-SUFFIX,mzstatic.com
+  # --- Apple 官方服务 ---
+  - apple.com
+  - cdn-apple.com
+  - icloud.com
+  - icloud.com.cn
+  - aaplimg.com
+  - apple-cloudkit.com
+  - apple-dns.net
+  - icloud-content.com
+  - mzstatic.com
+  
+  # --- Apple CDN 基础设施 ---
+  - akadns.net
+  - akamaiedge.net
+  - edgesuite.net
 
-# Apple 常用 CDN 基础设施
-- DOMAIN-SUFFIX,akadns.net
-- DOMAIN-SUFFIX,akamaiedge.net
-- DOMAIN-SUFFIX,edgesuite.net
+  # --- 教育与政府网 ---
+  - edu.cn
+  - gov.cn
 
-# 中国教育网与政府网
-- DOMAIN-SUFFIX,edu.cn
-- DOMAIN-SUFFIX,gov.cn
+domain_keyword_set:
+  - apple-icloud
+  - icloud-content
