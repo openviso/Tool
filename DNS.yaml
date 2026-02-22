@@ -1,63 +1,19 @@
-  # --- Apple 官方服务 ---
-  - domain_suffix:
-      match: apple.com
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: cdn-apple.com
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: icloud.com
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: icloud.com.cn
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: aaplimg.com
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: apple-cloudkit.com
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: apple-dns.net
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: icloud-content.com
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: mzstatic.com
-      value: system
-      disabled: false
+# Apple 官方服务及分发
+- DOMAIN-SUFFIX,apple.com
+- DOMAIN-SUFFIX,cdn-apple.com
+- DOMAIN-SUFFIX,icloud.com
+- DOMAIN-SUFFIX,icloud.com.cn
+- DOMAIN-SUFFIX,aaplimg.com
+- DOMAIN-SUFFIX,apple-cloudkit.com
+- DOMAIN-SUFFIX,apple-dns.net
+- DOMAIN-SUFFIX,icloud-content.com
+- DOMAIN-SUFFIX,mzstatic.com
 
-  # --- Apple CDN 加速相关 ---
-  - domain_suffix:
-      match: akadns.net
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: akamaiedge.net
-      value: system
-      disabled: false
-  - domain_suffix:
-      match: edgesuite.net
-      value: system
-      disabled: false
+# Apple 常用 CDN 基础设施
+- DOMAIN-SUFFIX,akadns.net
+- DOMAIN-SUFFIX,akamaiedge.net
+- DOMAIN-SUFFIX,edgesuite.net
 
-  # --- 教育网后缀 ---
-  - domain_suffix:
-      match: edu.cn
-      value: system
-      disabled: false
-
-  # --- 政府网后缀 ---
-  - domain_suffix:
-      match: gov.cn
-      value: system
-      disabled: false
+# 中国教育网与政府网
+- DOMAIN-SUFFIX,edu.cn
+- DOMAIN-SUFFIX,gov.cn
