@@ -1,3 +1,4 @@
+domain_suffix_set:
 # Apple 官方服务及分发
 - DOMAIN-SUFFIX,apple.com
 - DOMAIN-SUFFIX,cdn-apple.com
