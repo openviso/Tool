@@ -21,7 +21,6 @@ domain_suffix_set:
   - xn--ngstr-lra8j.com
 domain_keyword_set:
   - gmail
-  - google
 ip_cidr_set:
   - 173.194.0.0/16
   - 74.125.0.0/16
