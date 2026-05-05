@@ -1,4 +1,7 @@
-# 基础架构与搜索 (核心中的核心)
+# NAME: Google (Trimmed & Essential)
+# UPDATED: 2026-05-04
+
+# 基础架构与 API
 DOMAIN-SUFFIX,google.com
 DOMAIN-SUFFIX,gstatic.com
 DOMAIN-SUFFIX,googleapis.com
@@ -11,31 +14,27 @@ DOMAIN-SUFFIX,accounts.google.com
 DOMAIN-SUFFIX,recaptcha.net
 DOMAIN-SUFFIX,pki.goog
 
-# Android 操作系统与应用商店 (核心组件)
+# Android 与 Play 商店核心 (不含 YouTube)
 DOMAIN-SUFFIX,android.com
 DOMAIN-SUFFIX,googleplay.com
 DOMAIN-SUFFIX,ggpht.com
 DOMAIN-SUFFIX,gvt1.com
 DOMAIN-SUFFIX,gvt2.com
 
-# 通讯与生产力
+# 生产力工具与通讯
 DOMAIN-SUFFIX,gmail.com
 DOMAIN-SUFFIX,googlemail.com
 DOMAIN-SUFFIX,googledrive.com
 
-# 关键辅助 (用于网络探测、更新及重定向)
-DOMAIN-SUFFIX,googlevideo.com
+# 核心分析 (可选，用于某些页面的正常加载)
 DOMAIN-SUFFIX,google-analytics.com
 DOMAIN-SUFFIX,googletagmanager.com
 
-# Google Drive 客户端识别
+# USER-AGENT 匹配
 USER-AGENT,%E4%BA%91%E7%AB%AF%E7%A1%AC%E7%9B%98*
 USER-AGENT,*com.google.Drive*
 USER-AGENT,Google.Drive*
 
-# Google 核心 IP 段 (可选)
+# IP 段兜底 (不含 YouTube 专属 IP)
 IP-CIDR,173.194.0.0/16,no-resolve
 IP-CIDR,74.125.0.0/16,no-resolve
-IP-CIDR,172.110.32.0/21,no-resolve
-IP-CIDR,216.73.80.0/20,no-resolve
-IP-CIDR6,2620:120:e000::/40,no-resolve
