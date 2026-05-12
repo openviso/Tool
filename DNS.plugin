@@ -127,11 +127,13 @@ hotspot.cslwifi.com = server:system
 
 # > Apple
 # refer: https://support.apple.com/zh-cn/HT210060
-networking.apple = server:system
+networking.apple = server:https://doh.dns.apple.com/dns-query
 # Apple.com
-# *.apple.com = server:system
+*.apple.com = server:https://doh.dns.apple.com/dns-query
+*.cdn-apple.com = server:https://doh.dns.apple.com/dns-query
 # iCloud.com
-*.icloud.com = server:system
+*.icloud.com = server:https://doh.dns.apple.com/dns-query
+
 
 # > Alphabet
 # refer: https://developers.google.com/speed/public-dns/docs/doh?hl=zh-cn
