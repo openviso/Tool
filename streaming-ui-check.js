@@ -192,24 +192,33 @@ function testChatGPT() {
 /**
  * 【模块三：Gemini / Google AI 访问权限拨测】
  */
+/**
+ * 【核心业务修正：Gemini 专属精准拨测】
+ * 探测 Gemini 核心鉴权边缘节点，带上特定的语言请求头，防止被 Google 误判
+ */
 function testGemini() {
   return new Promise((resolve) => {
     let option = {
-      url: BASE_URL_GEMINI,
-      opts: opts,
+      url: 'https://alkalimera-pa.clients6.google.com/v1:skipreauth',
+      opts: opts1, // 使用禁止重定向的配置，精准捕捉 403 / 451 状态
       timeout: 4000,
-      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Accept-Language': 'en-US,en;q=0.9' // 强制声明英文语言环境，绕过部分语义拦截
+      }
     };
     
     $task.fetch(option).then(response => {
-      // 当未携带 Token 访问该端点时，未被封锁的节点会收到标准的 400 Bad Request
+      // 携带空凭证访问该接口时：
+      // 1. 准入区域的合规节点：Google 会正常响应并返回 400 Bad Request（证明接口通路完好）
+      // 2. 封锁区域（如中国大陆、香港等）：Google 会直接拒绝并返回 403 Forbidden 或 451
       if (response.statusCode === 400) {
         result["Gemini"] = "<b>Gemini: </b>支持 🎉";
       } else if (response.statusCode === 403 || response.statusCode === 451) {
-        // 403 Forbidden 或 451 Unavailable For Legal Reasons 代表由于地理位置政策被封锁
         result["Gemini"] = "<b>Gemini: </b>未支持 🚫";
       } else {
-        result["Gemini"] = "<b>Gemini: </b>未支持 🚫";
+        // 捕捉可能存在的 302 重定向（比如送中后跳转到 google.com.hk）
+        result["Gemini"] = "<b>Gemini: </b>未支持 (区域受限) 🚫";
       }
       resolve();
     }, () => {
