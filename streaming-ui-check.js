@@ -1,6 +1,6 @@
 /**
  * ==========================================
- * 脚本名称: ChatGPT & Netflix 解锁状态双检脚本
+ * 脚本名称: ChatGPT & Netflix & Gemini 解锁状态三检脚本
  * 适用平台: Quantumult X (Build 598+ ONLY)
  * 脚本类型: 节点交互拨测 (event-interaction)
  * 使用说明: 绑定至策略组交互事件，切换节点时自动触发
@@ -11,22 +11,22 @@
 // 1. 全局常量与测试端点配置 (Constants & Endpoints)
 // ==========================================
 const BASE_URL_NF = 'https://www.netflix.com/title/';
-const FILM_ID = 81280792; // 具有严格区域版权限制的特定 Netflix 影片 ID (用于检测是否完整解锁)
+const FILM_ID = 81280792; // 具有严格区域版权限制的特定 Netflix 影片 ID
 
 const BASE_URL_GPT = 'https://chat.openai.com/';
 const Region_URL_GPT = 'https://chat.openai.com/cdn-cgi/trace'; // Cloudflare 边缘诊断页
+
+const BASE_URL_GEMINI = 'https://alkalimera-pa.clients6.google.com/v1:skipreauth'; // Gemini 边缘服务拨测点
 
 const arrow = " ➟ "; // UI 箭头分隔符
 
 // ==========================================
 // 2. 网络请求上下文配置 (Network Options)
 // ==========================================
-// $environment.params 会动态传入用户当前在 UI 中选中的“节点名称”，确保流量走对应的代理
 var opts = { 
   policy: $environment.params 
 };
 
-// opts1 关闭了 HTTP 自动重定向 (redirection: false)，专门用来捕捉 302 临时跳转状态
 var opts1 = { 
   policy: $environment.params, 
   redirection: false 
@@ -46,7 +46,7 @@ var flags = new Map([
   ["HK","🇭🇰"],["HN","🇭🇳"],["HR","🇭🇷"],["HT","🇭🇹"],["HU","🇭🇺"],
   ["ID","🇮🇩"],["IE","🇮🇪"],["IL","🇮🇱"],["IM","🇮🇲"],["IN","🇮🇳"],["IO","🇮🇴"],["IQ","🇮🇶"],["IR","🇮🇷"],["IS","🇮🇸"],["IT","🇮🇹"],
   ["JE","🇯🇪"],["JM","🇯🇲"],["JO","🇯🇴"],["JP","🇯🇵"],
-  ["KE","🇰🇪"],["KG","🇰🇬"],["KH","🇰🇭"],["KI","🇰🇮"],["KM","🇰🇲"],["KN","KN"],["KP","🇰🇵"],["KR","🇰🇷"],["KW","🇰🇼"],["KY","🇰🇾"],["KZ","KZ"],
+  ["KE","🇰🇪"],["KG","🇰🇬"],["KH","🇰🇭"],["KI","🇰🇮"],["KM","🇰🇲"],["KN","🇰🇳"],["KP","🇰🇵"],["KR","🇰🇷"],["KW","🇰🇼"],["KY","🇰🇾"],["KZ","KZ"],
   ["LA","🇱🇦"],["LB","🇱🇧"],["LC","🇱🇨"],["LI","🇱🇮"],["LK","🇱🇰"],["LR","🇱🇷"],["LS","🇱🇸"],["LT","🇱🇺"],["LU","🇱🇺"],["LV","🇱🇻"],["LY","🇱🇾"],
   ["MA","🇲🇦"],["MC","🇲🇨"],["MD","🇲🇩"],["ME","🇲🇪"],["MF","🇲🇫"],["MG","🇲🇬"],["MH","🇲🇭"],["MK","🇲🇰"],["ML","🇲🇱"],["MM","🇲🇲"],["MN","🇲🇳"],["MO","🇲🇴"],["MP","🇲🇵"],["MQ","🇲🇶"],["MR","🇲🇷"],["MS","🇲🇸"],["MT","🇲🇹"],["MU","🇲🇺"],["MV","🇲🇲"],["MW","🇲🇼"],["MX","🇲🇽"],["MY","🇲🇾"],["MZ","🇲🇿"],
   ["NA","🇳🇦"],["NC","🇳🇨"],["NE","🇳🇪"],["NF","🇳🇫"],["NG","🇳🇬"],["NI","🇳🇮"],["NL","🇳🇱"],["NO","🇳🇺"],["NP","🇳🇵"],["NR","🇳🇷"],["NU","🇳🇺"],["NZ","🇳🇿"],
@@ -59,7 +59,7 @@ var flags = new Map([
   ["UA","🇺🇦"],["UG","🇺🇬"],["UK","🇬🇧"],["UM","🇺🇲"],["US","🇺🇸"],["UY","🇺🇾"],["UZ","🇺🇿"],
   ["VA","🇻🇦"],["VC","🇻🇨"],["VE","🇻🇪"],["VG","🇻🇬"],["VI","🇻🇮"],["VN","🇻🇳"],["VU","🇻🇺"],
   ["WF","🇼🇫"],["WS","🇼🇸"],
-  ["XK","🇽开"],
+  ["XK","🇽🇰"],
   ["YE","🇾🇪"],["YT","🇾🇹"],
   ["ZA","🇿🇦"],["ZM","🇿🇲"],["ZW","🇿🇼"]
 ]);
@@ -67,14 +67,14 @@ var flags = new Map([
 // OpenAI 官方明文支持 ChatGPT 服务的常见国家/地区列表
 const support_countryCodes = ["US","TW","HK","SG","JP","KR","GB","FR","DE","CA","AU","IT","ES","CH","NL","IE","NZ","MY"];
 
-// 默认响应状态模板 (网络卡顿或异常时的后备状态)
+// 默认响应状态模板
 let result = {
   "title": '    🤖  服务解锁查询',
   "Netflix": '<b>Netflix: </b>检测失败，请重试 ❗️',
-  "ChatGPT" : '<b>ChatGPT: </b>检测失败，请重试 ❗️'
+  "ChatGPT" : '<b>ChatGPT: </b>检测失败，请重试 ❗️',
+  "Gemini" : '<b>Gemini: </b>检测失败，请重试 ❗️'
 };
 
-// 向 QX 内核请求解析当前完整策略树的通讯载荷
 const message = {
   action: "get_policy_state",
   content: $environment.params
@@ -84,45 +84,37 @@ const message = {
 // 4. 异步控制中心与主流程驱动 (Main Orchestrator)
 // ==========================================
 ;(async () => {
-  // 【多路齐发】并行启动 Netflix 与 ChatGPT 探测
-  await Promise.all([testNf(FILM_ID), testChatGPT()]);
+  // 并行启动 Netflix、ChatGPT 和 Gemini 探测
+  await Promise.all([testNf(FILM_ID), testChatGPT(), testGemini()]);
 
   // 向内核查询策略链
   $configuration.sendMessage(message).then(resolve => {
-    let output = $environment.params; // 默认采用当前策略名兜底
+    let output = $environment.params;
     if (resolve.ret && resolve.ret[message.content]) {
-      // 格式化输出策略树路径
       output = JSON.stringify(resolve.ret[message.content]).replace(/\"|\[|\]/g,"").replace(/\,/g," ➟ ");
     }
     
-    // 【UI 视图装配】排版面板中仅组合展示 ChatGPT 和 Netflix 的结果
-    let content = "--------------------------------------</br>" + [result["ChatGPT"], result["Netflix"]].join("</br></br>");
+    // 【UI 视图装配】按顺序组合展示 ChatGPT、Gemini 和 Netflix
+    let content = "--------------------------------------</br>" + [result["ChatGPT"], result["Gemini"], result["Netflix"]].join("</br></br>");
     content = content + "</br>--------------------------------------</br>" + "<font color=#CD5C5C>" + "<b>节点</b> ➟ " + output + "</font>";
     content = `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + content + `</p>`;
     
-    // 回传数据至 Quantumult X 渲染 UI 视图
     $done({"title": result["title"], "htmlMessage": content});
   }, reject => {
     $done();
   });  
 })()
 .catch(() => {
-  // 顶层未捕获异常的全局防死锁兜底
   $done({"title": result["title"], "htmlMessage": `<p style="text-align: center;">----------------------</br></br>🚥 检测异常</br></br>----------------------</p>`});
 });
 
 // ==========================================
 // 5. 工具函数模块 (Utility Functions)
 // ==========================================
-/**
- * 国家代码转 Emoji 国旗工具函数
- * @param {string} code - 两个字母的国家代码缩写 (如 'US')
- * @returns {string} 对应的 Emoji 旗帜或原文本
- */
 function getFlag(code) {
   if (!code) return "🏳️";
   let flag = flags.get(code.toUpperCase());
-  return flag ? flag : code.toUpperCase(); // 若找不到映射则直接输出原大写代码
+  return flag ? flag : code.toUpperCase();
 }
 
 // ==========================================
@@ -137,7 +129,7 @@ function testNf(filmId) {
     let option = {
       url: BASE_URL_NF + filmId,
       opts: opts,
-      timeout: 4000, // 4秒超时硬断开
+      timeout: 4000,
       headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
     };
     
@@ -147,15 +139,14 @@ function testNf(filmId) {
       } else if (response.statusCode === 403) {
         result["Netflix"] = "<b>Netflix: </b>未支持 🚫";
       } else if (response.statusCode === 200) {
-        // 从响应头拿到重定向后的最终归属 URL 路径
         let url = response.headers['X-Originating-URL'] || '';
-        let region = url.split('/')[3] || 'US'; // 截取域名后的第一级路径
+        let region = url.split('/')[3] || 'US';
         region = region.split('-')[0].toUpperCase();
-        if (region === 'TITLE') region = 'US'; // 特殊处理：直接到主站未重定向则代表美区
+        if (region === 'TITLE') region = 'US';
         
         result["Netflix"] = "<b>Netflix: </b>完整支持" + arrow + "⟦ " + getFlag(region) + " ⟧ 🎉";
       }
-      resolve(); // 释放当前 Promise
+      resolve();
     }, () => {
       result["Netflix"] = "<b>Netflix: </b>检测超时 🚦";
       resolve();
@@ -170,20 +161,13 @@ function testChatGPT() {
   return new Promise((resolve) => {
     let option = { url: BASE_URL_GPT, opts: opts1, timeout: 4000 };
     
-    // 第一步：初探主页
     $task.fetch(option).then(response => {
       let resp = JSON.stringify(response);
-      
-      // text/plain 说明被 Cloudflare 防火墙或验证码页拦截
       if (resp.indexOf("text/plain") == -1) {
         let option1 = { url: Region_URL_GPT, opts: opts1, timeout: 4000 };
         
-        // 第二步：通过边缘节点诊断拉取真实定位
         $task.fetch(option1).then(response => {
-          // 切割解析文本中的 "loc=XX" 属性
           let region = response.body.split("loc=")[1].split("\n")[0].toUpperCase();
-          
-          // 检查解析出的定位是否在官方准入白名单中
           if (support_countryCodes.includes(region)) {
             result["ChatGPT"] = "<b>ChatGPT: </b>支持" + arrow + "⟦ " + getFlag(region) + " ⟧ 🎉";
           } else {
@@ -200,6 +184,36 @@ function testChatGPT() {
       }
     }, () => {
       result["ChatGPT"] = "<b>ChatGPT: </b>检测超时 🚦";
+      resolve();
+    });
+  });
+}
+
+/**
+ * 【模块三：Gemini / Google AI 访问权限拨测】
+ */
+function testGemini() {
+  return new Promise((resolve) => {
+    let option = {
+      url: BASE_URL_GEMINI,
+      opts: opts,
+      timeout: 4000,
+      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
+    };
+    
+    $task.fetch(option).then(response => {
+      // 当未携带 Token 访问该端点时，未被封锁的节点会收到标准的 400 Bad Request
+      if (response.statusCode === 400) {
+        result["Gemini"] = "<b>Gemini: </b>支持 🎉";
+      } else if (response.statusCode === 403 || response.statusCode === 451) {
+        // 403 Forbidden 或 451 Unavailable For Legal Reasons 代表由于地理位置政策被封锁
+        result["Gemini"] = "<b>Gemini: </b>未支持 🚫";
+      } else {
+        result["Gemini"] = "<b>Gemini: </b>未支持 🚫";
+      }
+      resolve();
+    }, () => {
+      result["Gemini"] = "<b>Gemini: </b>检测超时 🚦";
       resolve();
     });
   });
